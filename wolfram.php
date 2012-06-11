@@ -13,7 +13,7 @@ class adb_wolfram {
 	public function __construct() {
 		$appID = get_option('adb_wolfram_id');
 		if ($appID) {
-			require_once 'wa_wrapper_0.1/WolframAlphaEngine.php';
+			require_once 'wa_wrapper/WolframAlphaEngine.php';
 			$this->engine = new WolframAlphaEngine($appID);
 			$this->active = true;
 		}
@@ -50,5 +50,33 @@ class adb_wolfram {
 				}
 			}
 		}
+	}
+
+	public function getState ($name) {
+		$query = $name . ' state';
+	}
+
+	public function getIndex ($name) {
+		$query = $name . ' cost of living index';
+	}
+
+	public function getMedian ($name) {
+		$query = $name . ' median household income';
+	}
+
+	public function getCities ($name) {
+		$query = $name . ' metro cities';
+	}
+
+	public function getZips ($name) {
+		$query = $name . ' metro ZIP codes';
+	}
+
+	public function metroCity ($name) {
+		$query = $name . ' metro area';
+	}
+
+	public function metroZip ($name) {
+		$query = $name . ' ZIP code city';
 	}
 }
