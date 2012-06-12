@@ -1,4 +1,5 @@
 == Adjunct Database ==
+
 Contributors: impleri
 Tags: activism, politics, lobbying, campaigns
 Requires at least: 3.0
