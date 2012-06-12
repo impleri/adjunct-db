@@ -16,6 +16,20 @@ class adb_benefit extends adb_parent {
 	protected $_name = 'benefit';
 	protected $key = 'campus';
 
+	// Magic Methods
+
+
+	/**
+	 * Constructor
+	 *
+	 * Establish table names and load an object if an ID is given
+	 * @param int $id Object ID/Key to load
+	 */
+	public function __construct ($id=null) {
+		parent::__construct($id, false);
+	}
+
+
 	public function schema() {
 		$sql = sprintf('CREATE TABLE %s (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -27,14 +41,4 @@ class adb_benefit extends adb_parent {
 
 		dbDelta($sql);
 	}
-
-	static public function get ($id) {}
-
-	static public function getBy ($field, $value) {}
-
-	public function insert() {}
-
-	public function update() {}
-
-	public function delete() {}
 }

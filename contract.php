@@ -17,9 +17,33 @@ wp_ntt_contract_meta
 	other		| Additional notes
 */
 
+/**
+ * Contract Class
+ *
+ * Class to handle contract details
+ */
 class adb_contract extends adb_parent {
+	/**
+	 * @var string Base table name
+	 */
 	protected $_name = 'contract';
 
+
+	// Object Methods
+
+
+	// Calculator to determine term rate from hourly rate
+	private function calculateRates() {}
+
+
+	// Database Methods
+
+
+	/**
+	 * Database Schema
+	 *
+	 * Format database table to current schema
+	 */
 	public function schema() {
 		$sql = sprintf('CREATE TABLE %s (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -43,16 +67,4 @@ class adb_contract extends adb_parent {
 		dbDelta($sql);
 	}
 
-	static public function get ($id) {}
-
-	static public function getBy ($field, $value) {}
-
-	public function insert() {}
-
-	public function update() {}
-
-	public function delete() {}
-
-	// Calculator to determine term rate from hourly rate
-	private function calculateRates() {}
 }

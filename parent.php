@@ -1,6 +1,6 @@
 <?php
 /**
- * adjunct main class file
+ * parent class file
  * @package adjunct
  * @author Christopher Roussel <christopher@impleri.net>
  */
@@ -67,7 +67,7 @@ abstract class adb_parent {
 	 * @param int $id Object ID/Key to load
 	 * @param bool $meta Setup metadata (true = yes)
 	 */
-	protected function __construct ($id=null, $meta=false) {
+	protected function __construct ($id=null, $meta=true) {
 		global $wpdb;
 
 		// provide a shortcut to $wpdb
@@ -177,6 +177,13 @@ abstract class adb_parent {
 
 	// Object Methods
 
+
+	/**
+	 * Build
+	 *
+	 * Load and complete necessary data for object
+	 */
+	public function build() {}
 
 	/**
 	 * Load Data

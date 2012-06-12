@@ -19,12 +19,12 @@ class adb_wolfram {
 		}
 	}
 
-	public function push ($request) {
+	private function push ($request) {
 		$this->response = $this->engine->getResults($request);
 		return !($this->response->isError);
 	}
 
-	public function getAssumptions() {
+	private function getAssumptions() {
 		$data = $this->response->getAssumptions();
 		if (!empty($data)) {
 			foreach ($data as $type => $assumptions) {
@@ -39,7 +39,7 @@ class adb_wolfram {
 		}
 	}
 
-	public function getPods() {
+	private function getPods() {
 		$data = $this->response->getPods();
 		if (!empty($data)) {
 			foreach ($data as $pod) {
@@ -52,16 +52,8 @@ class adb_wolfram {
 		}
 	}
 
-	public function getState ($name) {
+	public function cityState ($name) {
 		$query = $name . ' state';
-	}
-
-	public function getIndex ($name) {
-		$query = $name . ' cost of living index';
-	}
-
-	public function getMedian ($name) {
-		$query = $name . ' median household income';
 	}
 
 	public function getCities ($name) {
@@ -78,5 +70,29 @@ class adb_wolfram {
 
 	public function metroZip ($name) {
 		$query = $name . ' ZIP code city';
+	}
+
+	public function metroIndex ($name) {
+		$query = $name . ' cost of living index';
+	}
+
+	public function metroMedian ($name) {
+		$query = $name . ' median household income';
+	}
+
+	public function campusLocation ($name) {
+		$query = $name . ' location';
+	}
+
+	public function campusProfit ($name) {
+		$query = $name . ' profit or not for profit';
+	}
+
+	public function campusPublic ($name) {
+		$query = $name . ' public/private';
+	}
+
+	public function campusTerm ($name) {
+		$query = $name . ' academic calendar type';
 	}
 }

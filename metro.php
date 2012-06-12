@@ -1,6 +1,6 @@
 <?php
 /**
- * adjunct main class file
+ * metro class file
  * @package adjunct
  * @author Christopher Roussel <christopher@impleri.net>
  */
@@ -37,7 +37,7 @@ class adb_metro extends adb_parent {
 	 * @param int $id Object ID/Key to load
 	 */
 	public function __construct ($id=null) {
-		parent::__construct($id);
+		parent::__construct($id, false);
 		$this->_tbl_zip = $this->_tbl_name . '_zip_map';
 		$this->_tbl_city = $this->_tbl_name . '_city_map';
 	}
@@ -122,7 +122,7 @@ class adb_metro extends adb_parent {
 				}
 				else {
 					$city = $value;
-					$state = $wolfram->getState($value);
+					$state = $wolfram->cityState($value);
 				}
 				$data = array('metro' => $metro->_data['id'], 'city' => $city, 'state' => $state);
 				$table = '_tbl_city';
@@ -164,13 +164,13 @@ class adb_metro extends adb_parent {
 
 		if (!$index) {
 			$wolfram = adb_system::getWolfram();
-			$index = $wolfram->getIndex($this->_data['name']);
+			$index = $wolfram->metroIndex($this->_data['name']);
 		}
 		$this->_data['index'] = $index;
 
 		if (!$median) {
 			$wolfram = adb_system::getWolfram();
-			$median = $wolfram->getMedian($this->_data['name']);
+			$median = $wolfram->metroMedian($this->_data['name']);
 		}
 		$this->_data['median'] = $median;
 

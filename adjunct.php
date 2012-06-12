@@ -7,7 +7,7 @@
 
 /*
 Plugin Name: Adjunct Database
-Version: 0.2.0
+Version: 0.2
 Plugin URI: http://github.com/impleri/adjunct-db/
 Description: Better form handling for The Adjunct Project
 */
